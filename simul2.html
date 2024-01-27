@@ -1,0 +1,66 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>로얄 시뮬레이터 베타</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {width: 100%; margin: 0; padding: 0; position: relative; background: rgba(74, 92, 138); color: black;}
+        body {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+        .footer {width: 100%; height: 5.25%; background-color: #f5f5f5; position: fixed; bottom: 0; text-align: center; font-size: 14px; line-height: 1.5;}
+        button {border: none; box-shadow: 0 2px 5px 1px rgba(0, 0, 0, .1); border-radius: 2px; cursor: pointer; box-sizing: border-box;}
+        #wrap {display: flex; flex-direction: row; justify-content: space-around;}
+        #gatcha {width: 350px; height: 500px; background: #fff; position: absolute; box-shadow: 0 2px 5px 1px rgba(0, 0, 0, .1); border-radius: 2px; align-items: center; top: 50%; transform: translateY(-50%);}
+        #gatcha .category {line-height: 30px; width: 100%; text-indent: 15px; border-bottom: solid #ddd 1px; box-sizing: border-box; text-align: center;}
+        #gatcha .action {padding: 3px;}
+        #gatcha .royal-btn, #gatcha .daily-btn, #gatcha .daily2-btn {width: 100%; padding: 10px; background: rgb(65, 128, 190); color: #fff; margin-bottom: 10px;}
+        #gatcha .royal30-btn {width: 100%; padding: 10px; background: rgb(161, 107, 7); color: #fff; margin-bottom: 10px;}
+        #gatcha .royal60-btn {width: 100%; padding: 10px; background: rgb(126, 126, 126); color: #fff; margin-bottom: 10px;}
+        #gatcha .royal100-btn {width: 100%; padding: 10px; background: goldenrod; color: #fff; margin-bottom: 10px;}
+        #gatcha .reset2-btn {width: 100%; padding: 10px; background: firebrick; color: #fff; margin-bottom: 10px;}
+        @media screen and (max-width: 767px) {
+            #wrap {flex-direction: column; align-items: center;}
+            #gatcha {width: 80%; left: 10%;}
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="royal.js"></script>
+ </head>
+  
+ <body>
+    <a href="https://klaralilibri.com/simul1" style="color: #fff">유물하러 가기</a>
+   <div id="wrap">
+    <div id="gatcha">
+        <div class="category">
+              [ 로얄 영웅 소환 ]
+        </div>
+        <div class="gatcha category">
+           <span style="color: deepskyblue">선택한 </span><span style="color: goldenrod">SS 영웅만</span><span style="color:  deepskyblue"> 등장!</span><br>
+           <span style="color: deepskyblue">확률 </span><span style="color: goldenrod">2배!</span>
+         </div>
+         <div class="action">
+            <button class="royal-btn">10회 소환</button>
+            <button class="royal30-btn">30회 소환</button>
+            <button class="royal60-btn">60회 소환</button>
+            <button class="royal100-btn">100회 소환</button>
+            <button class="daily-btn">데일리 영웅 소환(0.5%)</button>
+            <button class="daily2-btn">데일리 영웅 소환(2%)</button>
+            <button class="reset2-btn">초기화</button>
+            총 시도 횟수: <span class="totalAttempts"></span><br>
+            SS 획득: <span class="successes"></span><br>
+            S 획득: <span class="failures"></span>
+         </div>
+         <div id="stats"></div>
+         <div id="daily-popup" style="position: absolute; bottom: 25%; left: 50%; transform: translate(-50%, 0); background-color: #fff; padding: 10px; display: none; width: 250px;">
+         <span id="close-daily-popup" style="cursor: pointer; float: right; font-size: 20px;">&times;</span></div>
+      </div>
+    </div>
+
+ <div class="footer">
+    ⓒ 2023-2024 각행<br>"그랜드체이스"에 대한 모든 권리는 KOG에게 있습니다.
+ </div>
+
+ </body>
+ 
