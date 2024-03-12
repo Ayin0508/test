@@ -345,7 +345,20 @@
     }
 
     function captureAndDownload() {
-      updateInputFormat();
+  updateInputFormat();
+
+  setTimeout(function () {
+    var element = document.body;
+    html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
+      var imageData = canvas.toDataURL('image/png');
+
+      var link = document.createElement('a');
+      link.href = imageData;
+      link.download = '육성 현황표_' + getFormattedDate() + '.png';
+      link.click();
+    });
+  }, 100);
+}
 
       var element = document.body;
       html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
