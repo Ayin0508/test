@@ -360,17 +360,6 @@
   }, 100);
 }
 
-      var element = document.body;
-      html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
-        var imageData = canvas.toDataURL('image/png');
-
-        var link = document.createElement('a');
-        link.href = imageData;
-        link.download = '육성 현황표_' + getFormattedDate() + '.png';
-        link.click();
-      });
-    }
-
     function getFormattedDate() {
       var now = new Date();
       var year = now.getFullYear();
