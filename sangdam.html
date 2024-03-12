@@ -330,7 +330,7 @@
     </tr>
   </table>
 
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <script>
     function clearText(input) {
       input.value = "";
@@ -345,20 +345,22 @@
     }
 
     function captureAndDownload() {
-  updateInputFormat();
+      updateInputFormat();
 
-  setTimeout(function () {
-    var element = document.body;
-    html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
-      var imageData = canvas.toDataURL('image/png');
+      setTimeout(function () {
+        window.onload = function () {
+          var element = document.body;
+          html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
+            var imageData = canvas.toDataURL('image/png');
 
-      var link = document.createElement('a');
-      link.href = imageData;
-      link.download = '육성 현황표_' + getFormattedDate() + '.png';
-      link.click();
-    });
-  }, 100);
-}
+            var link = document.createElement('a');
+            link.href = imageData;
+            link.download = '육성 현황표_' + getFormattedDate() + '.png';
+            link.click();
+          });
+        };
+      }, 100);
+    }
 
     function getFormattedDate() {
       var now = new Date();
@@ -368,7 +370,7 @@
       return year + month + day;
     }
   </script>
-<br><br>
+  <br><br>
   <button onclick="captureAndDownload()">캡처 및 저장</button>
 </body>
 </html>
