@@ -330,10 +330,6 @@
 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script>
-    function clearText(input) {
-      input.value = "";
-    }
-
     function updateInputFormat() {
       var inputs = document.querySelectorAll('input[type="text"]');
       inputs.forEach(function (input) {
@@ -342,23 +338,20 @@
       });
     }
 
-    function captureAndDownload() {
+   function captureAndDownload() {
       updateInputFormat();
 
-      setTimeout(function () {
-        window.onload = function () {
-          document.fonts.ready.then(function () {
-            var element = document.body;
-            html2canvas(element, { useCORS: true, scale: 2 }).then(function (canvas) {
-              var imageData = canvas.toDataURL('image/png');
-
-              var link = document.createElement('a');
-              link.href = imageData;
-              link.download = '육성 현황표_' + getFormattedDate() + '.png';
-              link.click();
-            });
-          });
-        };
+      document.fonts.ready.then(function() {
+        var element = document.body;
+        html2canvas(element, { useCORS: true, scale: 2 }).then(function(canvas) {
+          var imageData = canvas.toDataURL('image/png');
+          var link = document.createElement('a');
+          link.href = imageData;
+          link.download = '육성 현황표_' + getFormattedDate() + '.png';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
       });
     }
 
